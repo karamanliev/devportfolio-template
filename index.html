@@ -9,12 +9,13 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="loading">
     <div id="lead">
         <div id="lead-content">
             <h1>Hristo Karamanliev</h1>
@@ -49,6 +50,16 @@
         </div>
     </footer>
     <!-- End footer -->
+    <script type="text/javascript">
+    (function() {
+      // Fake loading.
+      setTimeout(init, 1200);
+
+      function init() {
+        document.body.classList.remove('loading');
+      }
+      })();
+    </script>
 </body>
 
 </html>

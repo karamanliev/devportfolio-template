@@ -33,7 +33,7 @@
 */
 
 // Define base and accent colors
-$base-color: #3498db;
+$base-color: #7f40f1;
 $base-color-hover: darken($base-color, 10%);
 
 // Define background colors
@@ -86,11 +86,7 @@ $text: #74808a;
 body {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
-
-    &.active {
-        overflow: hidden;
-        z-index: -1;
-    }
+    overflow: hidden;
 }
 
 footer {
@@ -98,9 +94,69 @@ footer {
     padding: 5px 0;
     position: absolute;
     width: 100%;
-    bottom: 0;
+    // bottom: -63px;
     left: 0;
-    z-index: 9999;
+    z-index: 1000;
+    animation: .2s ease-out 1.2s footerShow;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes footerShow {
+  from {
+    bottom: -63px;
+  }
+  to {
+    bottom: 0;
+  }
+}
+
+/* Page Loader */
+.loading {
+  &:before {
+	content: '';
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  opacity: 1;
+  animation: .3s ease-out .9s loaderHide;
+  }
+
+  @keyframes loaderHide {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  &:after {
+  	content: 'H';
+    font-family: 'Bree Serif', serif;
+  	position: fixed;
+  	z-index: 10000;
+  	top: 50%;
+  	left: 50%;
+  	margin: -25px 0 0 -25px;
+  	pointer-events: none;
+    font-size: 5em;
+    font-weight: 900;
+  	color: #fff;
+  	animation: loaderAnim 0.8s ease-out infinite alternate forwards, .3s ease-out .9s loaderHide;
+  }
+}
+
+@keyframes loaderAnim {
+	to {
+		transform: translate3d(0,-100px,0) rotate(45deg);
+	}
 }
 
 .social {
@@ -129,18 +185,33 @@ footer {
 }
 
 .btn-rounded-white {
+    opacity: 0;
     display: inline-block;
     color: #fff;
     padding: 15px 80px;
     border: 3px solid #fff;
     border-radius: 30px;
     @include transition();
+    animation: .5s linear buttonShow;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    position: relative;
 
     &:hover {
         color: $base-color;
         background: #fff;
         text-decoration: none;
     }
+}
+
+@keyframes buttonShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /*
@@ -173,14 +244,21 @@ footer {
     }
 
     h1 {
+        font-family: 'Bree Serif', serif;
+        opacity: 0;
         color: #fff;
-        font-weight: 900;
+        font-weight: 400;
         font-size: 4em;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
+        // text-transform: uppercase;
+        letter-spacing: 0.03em;
         line-height: 0.9em;
         padding-bottom: 35px;
         white-space: nowrap;
+        animation: .3s linear buttonShow;
+        animation-delay: 1.4s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        position: relative;
     }
 
     h2 {
@@ -199,7 +277,7 @@ footer {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba($base-color-hover, 0.7);
+    background-image: linear-gradient(135deg, rgba(#667eea, 0.8) 0%, rgba(#764ba2, 0.8) 100%);
     z-index: 1;
 }
 
