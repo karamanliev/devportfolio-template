@@ -30,7 +30,7 @@ gulp.task('styles', function() {
         })))
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(autoprefixer())
-        .pipe(gulp.dest('css'));
+        .pipe(gulp.dest('assets/css'));
 });
 
 gulp.task('watch', ['scripts', 'styles'], function() {

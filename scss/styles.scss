@@ -227,13 +227,25 @@ footer {
     --------------------------
 */
 
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background: url('../img/lead-bg.jpg') no-repeat;
+  background-size: cover;
+}
+
 #lead {
     position: relative;
     // height: 100vh;
     min-height: 500px;
     // max-height: 1080px;
-    background: url(../images/lead-bg.jpg);
-    background-size: cover;
     padding: 15px;
     overflow: hidden;
 }
@@ -296,12 +308,15 @@ footer {
 
 // Medium Devices
 @media only screen and (max-width : 992px) {
+    #bgvid {
+      display: none;
+    }
 
     #lead {
-        height: 100vh;
-        min-height: auto;
-        max-height: auto;
+        // height: 100vh;
         padding: 100px 15px;
+        background: url('../img/lead-bg.jpg');
+        background-size: cover;
     }
 
     #lead-content {
@@ -345,7 +360,6 @@ footer {
     .social {
         text-align: center;
     }
-
 }
 
 // Extra Small Devices
